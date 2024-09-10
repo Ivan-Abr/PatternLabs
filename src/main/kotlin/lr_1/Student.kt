@@ -51,4 +51,7 @@ class Student{
         get() = _mail
         set(value){_mail =value}
 
+    override fun toString(): String {
+        return "Student(id=$id, firstName='$firstName', lastName='$lastName', patronymic='$patronymic', telephone=$telephone, telegram=$telegram, mail=$mail)"
+    }
 }
