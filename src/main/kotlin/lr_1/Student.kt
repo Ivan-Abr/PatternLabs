@@ -1,6 +1,13 @@
 package ru.kubsu.lr_1
 
 class Student{
+    private lateinit var _firstName: String
+    private lateinit var _lastName: String
+    private lateinit var _patronymic: String
+    private var _telephone: String? = null
+    private var _telegram:String? = null
+    private var _mail:String? = null
+
     constructor(
         id: Int,
         firstName: String,
@@ -18,31 +25,30 @@ class Student{
         this.telegram = telegram
         this.mail = mail
     }
-    var id: Int
-        get() = id
-        set(value){id = value}
 
+    var id: Int
     var firstName: String
-        get() = firstName
-        set(value){firstName = value}
+        get() = _firstName
+        set(value){_firstName = value}
 
     var lastName: String
-        get() = lastName
-        set(value){lastName = value}
+        get() = _lastName
+        set(value){_lastName = value}
 
     var patronymic: String
-        get() = patronymic
-        set(value) {patronymic = value}
+        get() = _patronymic
+        set(value) {_patronymic = value}
 
     var telephone: String?
-        get() = telephone
-        set(value){telephone = value}
+        get() = _telephone
+        set(value){_telephone = value}
 
     var telegram: String?
-        get() = telegram
-        set(value){telegram = value}
+        get() = _telegram
+        set(value){_telegram = value}
 
     var mail: String?
-        get() = mail
-        set(value){mail =value}
+        get() = _mail
+        set(value){_mail =value}
+
 }
