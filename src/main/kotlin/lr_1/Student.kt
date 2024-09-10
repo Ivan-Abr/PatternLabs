@@ -26,6 +26,16 @@ class Student{
         this.mail = mail
     }
 
+    constructor(params: Map<String, Any?>): this(
+        params["id"] as Int,
+        params["firstName"] as String,
+        params["lastName"] as String,
+        params["patronymic"] as String,
+        params["telephone"] as String?,
+        params["telegram"] as String?,
+        params["mail"] as String?
+    )
+
     var id: Int
     var firstName: String
         get() = _firstName
