@@ -39,4 +39,5 @@ fun main() {
     print(Student(studentHash))
     println(student1.toString())
     println(student2.toString())
+    println(Student(52,"Test", "Testov","Testovich", "telephon", null, null, null).toString())
 }

@@ -55,7 +55,12 @@ class Student{
 
     var telephone: String?
         get() = _telephone
-        set(value){_telephone = value}
+        set(value){
+            if (value != null && !isTelephoneNumberValid(value)){
+                throw Exception("Phone number is not valid!: $value")
+            }
+            _telephone = value
+        }
 
     var telegram: String?
         get() = _telegram
@@ -68,6 +73,14 @@ class Student{
     var git: String?
         get() = _git
         set(value){_git = value}
+
+    companion object {
+        private var telephoneRegex = Regex("/^((8|\\+7)[\\- ]?)?(\\(?\\d{3}\\)?[\\- ]?)?[\\d\\- ]{7,10}\$/")
+
+        fun isTelephoneNumberValid(phone: String): Boolean {
+            return telephoneRegex.matches(phone)
+        }
+    }
 
     override fun toString(): String {
         return "Student(id=$id, firstName='$firstName', lastName='$lastName', patronymic='$patronymic', telephone=$telephone, telegram=$telegram, mail=$mail, git = $git)"
