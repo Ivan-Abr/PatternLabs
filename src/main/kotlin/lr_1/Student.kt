@@ -64,21 +64,51 @@ class Student{
 
     var telegram: String?
         get() = _telegram
-        set(value){_telegram = value}
+        set(value){
+            if (value != null && !isTelegramValid(value)){
+                throw Exception("Telegram is not valid!: $value")
+            }
+            _telegram = value
+        }
 
     var mail: String?
         get() = _mail
-        set(value){_mail = value}
+        set(value){
+            if (value!= null && !isEmailValid(value)){
+                throw Exception("Mail is not valid!: $value")
+            }
+            _mail = value
+        }
 
     var git: String?
         get() = _git
-        set(value){_git = value}
+        set(value){
+            if (value!= null && !isGitValid(value)){
+                throw Exception("Git is not valid!: $value")
+            }
+            _git = value
+        }
 
     companion object {
         private var telephoneRegex = Regex("/^((8|\\+7)[\\- ]?)?(\\(?\\d{3}\\)?[\\- ]?)?[\\d\\- ]{7,10}\$/")
+        private val emailRegex = Regex("^[\\w.-]+@[\\w.-]+\\.[a-zA-Z]{2,6}\$")
+        private val telegramRegex = Regex("^@[A-Za-z0-9_]{5,32}\$")
+        private val gitRegex = Regex("/^github\\.com\\/[a-z0-9_-]+\$/gm")
 
         fun isTelephoneNumberValid(phone: String): Boolean {
             return telephoneRegex.matches(phone)
+        }
+
+        fun isEmailValid(email: String): Boolean{
+            return emailRegex.matches(email)
+        }
+
+        fun isTelegramValid(telegram: String): Boolean{
+            return telegramRegex.matches(telegram)
+        }
+
+        fun isGitValid(git: String): Boolean{
+            return gitRegex.matches(git)
         }
     }
 
