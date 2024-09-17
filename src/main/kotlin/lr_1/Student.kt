@@ -103,6 +103,27 @@ class Student{
         return hasGit() && hasContact()
     }
 
+    fun setContacts(telephone: String?, telegram: String? = null, email: String? = null) {
+        if (telephone != null) {
+            if (!isTelephoneNumberValid(telephone)) {
+                throw IllegalArgumentException("Неверный формат телефона: $telephone")
+            }
+            this.telephone = telephone
+        }
+        if (telegram != null) {
+            if (!isTelegramValid(telegram)) {
+                throw IllegalArgumentException("Неверный формат Telegram: $telegram")
+            }
+            this.telegram = telegram
+        }
+        if (email != null) {
+            if (!isEmailValid(email)) {
+                throw IllegalArgumentException("Неверный формат email: $email")
+            }
+            this.mail = email
+        }
+    }
+
     companion object {
         private var telephoneRegex = Regex("/^((8|\\+7)[\\- ]?)?(\\(?\\d{3}\\)?[\\- ]?)?[\\d\\- ]{7,10}\$/")
         private val emailRegex = Regex("^[\\w.-]+@[\\w.-]+\\.[a-zA-Z]{2,6}\$")
