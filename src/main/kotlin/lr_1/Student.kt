@@ -1,6 +1,7 @@
 package ru.kubsu.lr_1
 
 class Student{
+
     private lateinit var _firstName: String
     private lateinit var _lastName: String
     private lateinit var _patronymic: String
@@ -88,6 +89,19 @@ class Student{
             }
             _git = value
         }
+    fun hasGit(): Boolean {
+        return git != null && git!!.isNotBlank()
+    }
+
+
+    fun hasContact(): Boolean {
+        return !telephone.isNullOrBlank() || !telegram.isNullOrBlank() || !mail.isNullOrBlank()
+    }
+
+
+    fun validate(): Boolean {
+        return hasGit() && hasContact()
+    }
 
     companion object {
         private var telephoneRegex = Regex("/^((8|\\+7)[\\- ]?)?(\\(?\\d{3}\\)?[\\- ]?)?[\\d\\- ]{7,10}\$/")
