@@ -7,6 +7,7 @@ class Student{
     private var _telephone: String? = null
     private var _telegram:String? = null
     private var _mail:String? = null
+    private var _git: String? = null
 
     constructor(
         id: Int,
@@ -16,6 +17,7 @@ class Student{
         telephone: String?,
         telegram: String?,
         mail: String?,
+        git: String?
     ){
         this.id = id
         this.firstName = firstName
@@ -24,6 +26,7 @@ class Student{
         this.telephone = telephone
         this.telegram = telegram
         this.mail = mail
+        this.git = git
     }
 
     constructor(params: Map<String, Any?>): this(
@@ -33,7 +36,8 @@ class Student{
         params["patronymic"] as String,
         params["telephone"] as String?,
         params["telegram"] as String?,
-        params["mail"] as String?
+        params["mail"] as String?,
+        params["git"] as String?
     )
 
     var id: Int
@@ -59,9 +63,13 @@ class Student{
 
     var mail: String?
         get() = _mail
-        set(value){_mail =value}
+        set(value){_mail = value}
+
+    var git: String?
+        get() = _git
+        set(value){_git = value}
 
     override fun toString(): String {
-        return "Student(id=$id, firstName='$firstName', lastName='$lastName', patronymic='$patronymic', telephone=$telephone, telegram=$telegram, mail=$mail)"
+        return "Student(id=$id, firstName='$firstName', lastName='$lastName', patronymic='$patronymic', telephone=$telephone, telegram=$telegram, mail=$mail, git = $git)"
     }
 }
