@@ -161,6 +161,21 @@ class Student{
         }
     }
 
+    fun getInfo(): String{
+        val data = if (git == null){
+            if (telegram == null){
+                if (telephone == null){
+                    "no data"
+                }
+                else telephone
+            }
+            else telegram
+        }
+        else git
+
+        return "Student: $lastName ${firstName[0]}.${patronymic[0]}., $data"
+    }
+
     override fun toString(): String {
         return "Student(id=$id, firstName='$firstName', lastName='$lastName', patronymic='$patronymic', telephone=$telephone, telegram=$telegram, mail=$mail, git = $git)"
     }
