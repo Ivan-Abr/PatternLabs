@@ -160,6 +160,20 @@ class Student{
         }
     }
 
+    fun getContact():String{
+        lateinit var contact: String
+        lateinit var contactInfo: String
+        telegram?.let {
+            contact = it
+            contactInfo = "telegram"
+        }
+        telephone?.let {
+            contact = it
+            contactInfo = "telephone"
+        }
+        return "$contactInfo: $contact"
+    }
+
     fun getInfo(): String{
         lateinit var contact: String
         lateinit var contactInfo: String
