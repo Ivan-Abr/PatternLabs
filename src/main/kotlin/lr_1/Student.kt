@@ -125,10 +125,24 @@ class Student{
     }
 
     companion object {
-        private var telephoneRegex = Regex("/^((8|\\+7)[\\- ]?)?(\\(?\\d{3}\\)?[\\- ]?)?[\\d\\- ]{7,10}\$/")
+        private var telephoneRegex = Regex("^[\\+]?[(]?[0-9]{3}[)]?[-\\s\\.]?[0-9]{3}[-\\s\\.]?[0-9]{4,6}\$")
         private val emailRegex = Regex("^[\\w.-]+@[\\w.-]+\\.[a-zA-Z]{2,6}\$")
         private val telegramRegex = Regex("^@[A-Za-z0-9_]{5,32}\$")
-        private val gitRegex = Regex("/^github\\.com\\/[a-z0-9_-]+\$/gm")
+        private val gitRegex = Regex("(https?:\\/\\/)?(www\\.)?(github\\.com|gitlab\\.com|bitbucket\\.org)\\/[A-Za-z0-9_.-]+\\/[A-Za-z0-9_.-]+(\\.git)?\$")
+
+        fun fromStringToStudent(input: String): Student{
+            val parsedData = input.split("; ")
+            val id = 1337
+            return Student(
+                id,
+                parsedData[0],
+                parsedData[1],
+                parsedData[2],
+                parsedData.getOrNull(3),
+                parsedData.getOrNull(4),
+                parsedData.getOrNull(5),
+                parsedData.getOrNull(6))
+        }
 
         fun isTelephoneNumberValid(phone: String): Boolean {
             return telephoneRegex.matches(phone)
