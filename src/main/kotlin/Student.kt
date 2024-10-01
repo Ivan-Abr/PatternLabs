@@ -1,5 +1,3 @@
-package ru.kubsu.lr_1
-
 class Student{
 
     private lateinit var _firstName: String
@@ -130,7 +128,7 @@ class Student{
         private val telegramRegex = Regex("^@[A-Za-z0-9_]{5,32}\$")
         private val gitRegex = Regex("(https?:\\/\\/)?(www\\.)?(github\\.com|gitlab\\.com|bitbucket\\.org)\\/[A-Za-z0-9_.-]+\\/[A-Za-z0-9_.-]+(\\.git)?\$")
 
-        fun fromStringToStudent(input: String): Student{
+        fun fromStringToStudent(input: String): Student {
             val parsedData = input.split("; ")
             val id = 1337
             return Student(
@@ -141,7 +139,8 @@ class Student{
                 parsedData.getOrNull(3),
                 parsedData.getOrNull(4),
                 parsedData.getOrNull(5),
-                parsedData.getOrNull(6))
+                parsedData.getOrNull(6)
+            )
         }
 
         fun isTelephoneNumberValid(phone: String): Boolean {
