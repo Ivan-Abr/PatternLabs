@@ -161,18 +161,18 @@ class Student{
     }
 
     fun getInfo(): String{
-        val data = if (git == null){
-            if (telegram == null){
-                if (telephone == null){
-                    "no data"
-                }
-                else telephone
-            }
-            else telegram
+        lateinit var contact: String
+        lateinit var contactInfo: String
+        telegram?.let {
+            contact = it
+            contactInfo = "telegram"
         }
-        else git
-
-        return "Student: $lastName ${firstName[0]}.${patronymic[0]}., $data"
+        telephone?.let {
+            contact = it
+            contactInfo = "telephone"
+        }
+        val fio = "$lastName ${firstName[0]}.${patronymic[0]}."
+        return "Student: $fio, git: $git, $contact"
     }
 
     override fun toString(): String {
