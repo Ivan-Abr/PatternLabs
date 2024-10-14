@@ -29,10 +29,10 @@ class Student(
         firstName = data.split(";")[0],
         lastName = data.split(";")[1],
         patronymic = data.split("2").getOrNull(2),
-        git = data.split(";").getOrNull(3),
-        telephone = data.split(";").getOrNull(4),
-        telegram = data.split(";").getOrNull(5),
-        mail = data.split(";").getOrNull(6)
+        telephone = data.split(";").getOrNull(3),
+        telegram = data.split(";").getOrNull(4),
+        mail = data.split(";").getOrNull(5),
+        git = data.split(";").getOrNull(6)
     )
 
     override fun hasGit(): Boolean {
@@ -97,6 +97,25 @@ class Student(
         }
 
         @Throws(IOException::class, IllegalArgumentException::class)
+        fun writeToTxt(studentList: List<Student>?, path: String){
+            val file = File(path)
+            if (!file.exists()) {
+                throw FileNotFoundException("Файл по адресу $path не найден.")
+            }
+            studentList?: throw Exception("NO DATA PRESENTED")
+            studentList.forEach{student ->
+                val string = "${student.firstName};" +
+                        "${student.lastName};" +
+                        "${student.patronymic};" +
+                        "${student.telephone};" +
+                        "${student.telegram};" +
+                        "${student.mail};" +
+                        "${student.git}"
+                file.writeText(string)
+            }
+
+        }
+        @Throws(IOException::class, IllegalArgumentException::class)
         fun readFromTxt(path: String): List<Student> {
             val file = File(path)
             if (!file.exists()) {
@@ -106,11 +125,9 @@ class Student(
             val studentList = mutableListOf<Student>()
             file.forEachLine { line ->
                 try {
-                    // Создаем студента из строки и добавляем в список
                     val student = Student((Math.random()*10).toInt(),line)
                     studentList.add(student)
                 } catch (e: IllegalArgumentException) {
-                    // Если строка некорректна, выбрасываем исключение
                     println("Ошибка в строке: \"$line\". Пропускаем её.")
                 }
             }
