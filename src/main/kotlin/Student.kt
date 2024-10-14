@@ -9,9 +9,9 @@ class Student(
     patronymic: String?,
     telephone: String?,
     telegram: String?,
-    mail: String?,
-    git: String?
-): BaseStudent(id, firstName, lastName, patronymic, telephone, telegram, git, mail){
+    git: String?,
+    mail: String?
+): BaseStudent(id, firstName, lastName, patronymic, telephone, telegram, git, mail), Comparable<Student>{
 
     constructor(params: Map<String, Any?>): this(
         params["id"] as Int,
@@ -20,8 +20,8 @@ class Student(
         params["patronymic"] as String,
         params["telephone"] as String?,
         params["telegram"] as String?,
-        params["mail"] as String?,
-        params["git"] as String?
+        params["git"] as String?,
+        params["mail"] as String?
     )
 
     constructor(id: Int, data: String): this(
@@ -31,8 +31,8 @@ class Student(
         patronymic = data.split("2").getOrNull(2),
         telephone = data.split(";").getOrNull(3),
         telegram = data.split(";").getOrNull(4),
-        mail = data.split(";").getOrNull(5),
-        git = data.split(";").getOrNull(6)
+        git = data.split(";").getOrNull(5),
+        mail = data.split(";").getOrNull(6),
     )
 
     override fun hasGit(): Boolean {
@@ -140,6 +140,13 @@ class Student(
         }
     }
 
+    override fun compareTo(other: Student): Int {
+        // Например, сравниваем по фамилии, а если они одинаковые, то по имени
+        return when {
+            lastName != other.lastName -> lastName.compareTo(other.lastName)
+            else -> firstName.compareTo(other.firstName)
+        }
+    }
 
     override fun toString(): String {
         return "Student(id=$id, firstName='$firstName', lastName='$lastName', patronymic='$patronymic', telephone=$telephone, telegram=$telegram, mail=$mail, git = $git)"
