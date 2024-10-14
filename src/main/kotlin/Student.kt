@@ -1,32 +1,13 @@
-class Student{
-
-    private lateinit var _firstName: String
-    private lateinit var _lastName: String
-    private lateinit var _patronymic: String
-    private var _telephone: String? = null
-    private var _telegram:String? = null
-    private var _mail:String? = null
-    private var _git: String? = null
-
-    constructor(
-        id: Int,
-        firstName: String,
-        lastName: String,
-        patronymic: String,
-        telephone: String?,
-        telegram: String?,
-        mail: String?,
-        git: String?
-    ){
-        this.id = id
-        this.firstName = firstName
-        this.lastName = lastName
-        this.patronymic = patronymic
-        this.telephone = telephone
-        this.telegram = telegram
-        this.mail = mail
-        this.git = git
-    }
+class Student(
+    id: Int,
+    firstName: String,
+    lastName: String,
+    patronymic: String?,
+    telephone: String?,
+    telegram: String?,
+    mail: String?,
+    git: String?
+): BaseStudent(id, firstName, lastName, patronymic, git, telephone, telegram, mail){
 
     constructor(params: Map<String, Any?>): this(
         params["id"] as Int,
@@ -39,66 +20,22 @@ class Student{
         params["git"] as String?
     )
 
-    var id: Int
-    var firstName: String
-        get() = _firstName
-        set(value){_firstName = value}
-
-    var lastName: String
-        get() = _lastName
-        set(value){_lastName = value}
-
-    var patronymic: String
-        get() = _patronymic
-        set(value) {_patronymic = value}
-
-    var telephone: String?
-        get() = _telephone
-        set(value){
-            if (value != null && !isTelephoneNumberValid(value)){
-                throw Exception("Phone number is not valid!: $value")
-            }
-            _telephone = value
-        }
-
-    var telegram: String?
-        get() = _telegram
-        set(value){
-            if (value != null && !isTelegramValid(value)){
-                throw Exception("Telegram is not valid!: $value")
-            }
-            _telegram = value
-        }
-
-    var mail: String?
-        get() = _mail
-        set(value){
-            if (value!= null && !isEmailValid(value)){
-                throw Exception("Mail is not valid!: $value")
-            }
-            _mail = value
-        }
-
-    var git: String?
-        get() = _git
-        set(value){
-            if (value!= null && !isGitValid(value)){
-                throw Exception("Git is not valid!: $value")
-            }
-            _git = value
-        }
-    fun hasGit(): Boolean {
+    override fun hasGit(): Boolean {
         return git != null && git!!.isNotBlank()
     }
 
 
-    fun hasContact(): Boolean {
+    override fun hasContact(): Boolean {
         return !telephone.isNullOrBlank() || !telegram.isNullOrBlank() || !mail.isNullOrBlank()
     }
 
 
-    fun validate(): Boolean {
+    override fun validate(): Boolean {
         return hasGit() && hasContact()
+    }
+
+    override fun displayInfo() {
+        super.displayInfo()
     }
 
     fun setContacts(telephone: String?, telegram: String? = null, email: String? = null) {
@@ -174,18 +111,9 @@ class Student{
         return "$contactInfo: $contact"
     }
 
-    fun getInfo(): String{
-        lateinit var contact: String
-        lateinit var contactInfo: String
-        telegram?.let {
-            contact = it
-            contactInfo = "telegram"
-        }
-        telephone?.let {
-            contact = it
-            contactInfo = "telephone"
-        }
-        val fio = "$lastName ${firstName[0]}.${patronymic[0]}."
+    fun getInfo():String{
+        val contact = getContacts()
+        val fio = getLastnameAndInitials()
         return "Student: $fio, git: $git, $contact"
     }
 
