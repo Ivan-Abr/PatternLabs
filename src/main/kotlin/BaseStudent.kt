@@ -3,9 +3,9 @@ open class BaseStudent(
     var firstName: String,
     var lastName: String,
     var patronymic: String? = null,
-    var git: String? = null,
     var telephone: String? = null,
     var telegram: String? = null,
+    var git: String? = null,
     var mail: String? = null
 ){
 

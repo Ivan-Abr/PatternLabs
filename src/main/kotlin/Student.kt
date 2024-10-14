@@ -11,7 +11,7 @@ class Student(
     telegram: String?,
     mail: String?,
     git: String?
-): BaseStudent(id, firstName, lastName, patronymic, git, telephone, telegram, mail){
+): BaseStudent(id, firstName, lastName, patronymic, telephone, telegram, git, mail){
 
     constructor(params: Map<String, Any?>): this(
         params["id"] as Int,
@@ -140,25 +140,6 @@ class Student(
         }
     }
 
-    fun getContact():String{
-        lateinit var contact: String
-        lateinit var contactInfo: String
-        telegram?.let {
-            contact = it
-            contactInfo = "telegram"
-        }
-        telephone?.let {
-            contact = it
-            contactInfo = "telephone"
-        }
-        return "$contactInfo: $contact"
-    }
-
-    fun getInfo():String{
-        val contact = getContacts()
-        val fio = getLastnameAndInitials()
-        return "Student: $fio, git: $git, $contact"
-    }
 
     override fun toString(): String {
         return "Student(id=$id, firstName='$firstName', lastName='$lastName', patronymic='$patronymic', telephone=$telephone, telegram=$telegram, mail=$mail, git = $git)"
