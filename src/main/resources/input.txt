@@ -1,0 +1,2 @@
+Test; Stringov; Stringovovich; 89604897189; @gelebe; test@mail.com; https://github.com/user/repo
+Test; Stringov; Stringovovich; 89604897189; @gelebe; test@mail.com; https://github.com/user/repo
