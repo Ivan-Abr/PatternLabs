@@ -1,3 +1,7 @@
+import java.io.File
+import java.io.FileNotFoundException
+import java.io.IOException
+
 class Student(
     id: Int,
     firstName: String,
@@ -18,6 +22,17 @@ class Student(
         params["telegram"] as String?,
         params["mail"] as String?,
         params["git"] as String?
+    )
+
+    constructor(id: Int, data: String): this(
+        id = id,
+        firstName = data.split(";")[0],
+        lastName = data.split(";")[1],
+        patronymic = data.split("2").getOrNull(2),
+        git = data.split(";").getOrNull(3),
+        telephone = data.split(";").getOrNull(4),
+        telegram = data.split(";").getOrNull(5),
+        mail = data.split(";").getOrNull(6)
     )
 
     override fun hasGit(): Boolean {
@@ -65,6 +80,7 @@ class Student(
         private val telegramRegex = Regex("^@[A-Za-z0-9_]{5,32}\$")
         private val gitRegex = Regex("(https?:\\/\\/)?(www\\.)?(github\\.com|gitlab\\.com|bitbucket\\.org)\\/[A-Za-z0-9_.-]+\\/[A-Za-z0-9_.-]+(\\.git)?\$")
 
+
         fun fromStringToStudent(input: String): Student {
             val parsedData = input.split("; ")
             val id = 1337
@@ -94,6 +110,32 @@ class Student(
 
         fun isGitValid(git: String): Boolean{
             return gitRegex.matches(git)
+        }
+
+        @Throws(IOException::class, IllegalArgumentException::class)
+        fun readFromTxt(path: String): List<Student> {
+            val file = File(path)
+            if (!file.exists()) {
+                throw FileNotFoundException("Файл по адресу $path не найден.")
+            }
+
+            val studentList = mutableListOf<Student>()
+            file.forEachLine { line ->
+                try {
+                    // Создаем студента из строки и добавляем в список
+                    val student = Student((Math.random()*10).toInt(),line)
+                    studentList.add(student)
+                } catch (e: IllegalArgumentException) {
+                    // Если строка некорректна, выбрасываем исключение
+                    println("Ошибка в строке: \"$line\". Пропускаем её.")
+                }
+            }
+
+            if (studentList.isEmpty()) {
+                throw IllegalArgumentException("В файле нет корректных данных для студентов.")
+            }
+
+            return studentList
         }
     }
 
