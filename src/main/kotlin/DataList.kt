@@ -27,15 +27,4 @@ abstract class DataList<T: Comparable<T>>(val elements: List<T>) {
 
     abstract fun formatData(data:Array<Array<String?>>): Array<Array<String>>
 
-    fun displayInfo() {
-        val name = "${getNames()} : ${getData()}"
-//        println(
-//            """
-//                ${}: $id
-//                Фамилия и инициалы: ${getLastnameAndInitials()}
-//                гит: ${git ?: "Нет гита"}
-//                контакты: ${getContacts()}
-//            """.trimIndent()
-//        )
-    }
 }

@@ -4,6 +4,11 @@ class DataListStudent(students: List<Student>) : DataList<Student>(students) {
         return listOf("firstName","lastName","patronymic","phone", "telegram","git","mail")
     }
 
+    fun printNames(list: List<String>){
+        print("№ ")
+        println(list.joinToString(" "))
+    }
+
     override fun fetchData(): Array<Array<String?>> {
         val data = mutableListOf<Array<String?>>()
         for ((index, student) in (super.getSelected().map { it to elements[it] })){
