@@ -22,14 +22,24 @@ class DataListStudent(students: List<Student>) : DataList<Student>(students) {
         return data.toTypedArray()
     }
 
-    override fun formatData(data: Array<Array<String?>>){
+    override fun formatData(data: Array<Array<String?>>): Array<Array<String>>{
+        val formatedData = mutableListOf<Array<String>>()
         for (row in data){
-            row[3] = row.getOrNull(3)?:""
-            row[4] = row.getOrNull(4)?:""
-            row[5] = row.getOrNull(5)?:""
-            row[6] = row.getOrNull(6)?:""
-            row[7] = row.getOrNull(7)?:""
+            val newRow  = arrayOf(
+                row[0]!!,
+                row[1]!!,
+                row[2]!!,
+                row.getOrNull(3)?:"",
+                row.getOrNull(4)?:"",
+                row.getOrNull(5)?:"",
+                row.getOrNull(6)?:"",
+                row.getOrNull(7)?:"",
+                    )
+
+            formatedData.add(newRow)
         }
+
+        return formatedData.toTypedArray()
     }
 
     override fun getData(): DataTable<String> {

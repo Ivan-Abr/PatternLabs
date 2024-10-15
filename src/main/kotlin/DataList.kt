@@ -19,13 +19,13 @@ abstract class DataList<T: Comparable<T>>(val elements: List<T>) {
 
     open fun getData(): DataTable<String>{
         val data = fetchData()
-        formatData(data)
-        return data
+        val newData = formatData(data)
+        return DataTable(newData)
     }
 
     abstract fun fetchData() : Array<Array<String?>>
 
-    abstract fun formatData(data:Array<Array<String?>>)
+    abstract fun formatData(data:Array<Array<String?>>): Array<Array<String>>
 
     fun displayInfo() {
         val name = "${getNames()} : ${getData()}"
