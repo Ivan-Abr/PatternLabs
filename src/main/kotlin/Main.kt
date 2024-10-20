@@ -1,43 +1,17 @@
-package ru.kubsu
-import ru.kubsu.lr_1.Student
-
 fun main() {
-    val student1 = Student(
-        1,
-        "Vasiliy",
-        "Zubko",
-        "Petrovich",
-        "+7(987)568-71-23",
-        "@vzubko",
-        "zub@.mail.ru",
-        "github.com/zuba"
-        )
+    val path = "src/main/resources/input.txt"
+    val st1 = Student(1,"Artur; Pirogov; Pylesosovich; 89604897189; @gelebe; test@mail.com; https://github.com/user/repo")
+    val st2 = Student(2, "Sanya", "Samyolov", "Dobytchikovich", "89013568790", "@arbuzz", "test@mail.com",null)
 
-    val student2 = Student(
-        2,
-        "Maria",
-        "Konovalova",
-        "Vitalievna",
-        "+7(962)454-32-44",
-        "@masha",
-        "konovalov@yandex.ru",
-        "github.com/konoval"
-    )
-
-    val studentHash : Map<String, Any> = mapOf(
-        "id" to 1,
-        "firstName" to "Zamir",
-        "lastName" to "Zarusov",
-        "patronymic" to "Zovovich",
-        "telephone" to " +7(800)302-04-56",
-        "telegram" to "@goyda",
-        "mail" to "prizivud@vk.com",
-        "git" to "github.com/zarusov"
-
-    )
-
-    print(Student(studentHash))
-    println(student1.toString())
-    println(student2.toString())
-    println(Student(52,"Test", "Testov","Testovich", "telephon", null, null, null).toString())
+    val studentList: List<BaseStudent> = listOf(st1, st2)
+    val shortStudentList = studentList.map { student -> ShortStudent(student) }
+    println(studentList)
+    val dataList = DataListStudent(shortStudentList)
+    println(dataList.toString())
+    dataList.select(0)
+    dataList.select(1)
+    val dataTable: DataTable<String> = dataList.getData()
+    val dataListNames = dataList.getNames()
+    dataList.printNames(dataListNames)
+    dataTable.displayTable()
 }
