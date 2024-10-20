@@ -1,33 +1,26 @@
 class ShortStudent(
-    id: Int,
-    firstName: String,
-    lastName: String,
-    telephone: String?,
-    telegram: String?,
-    git: String?,
-    mail: String?
-) : BaseStudent(id,firstName, lastName, null, telephone,telegram, git, mail){
+    private var id: Int,
+    var nameAndInitials: String,
+    var git: String?,
+    var contacts: String?,
+): Comparable<ShortStudent>{
     constructor(student: BaseStudent): this(
         student.id,
-        student.firstName,
-        student.lastName,
+        student.getLastnameAndInitials(),
         student.git,
-        student.telephone,
-        student.telegram,
-        student.mail
+        student.getContacts()
     )
 
-    constructor(id: Int, data: String): this(
-        id = id,
-        firstName = data.split(";")[0],
-        lastName = data.split(";")[1],
-        telephone = data.split(";").getOrNull(2),
-        telegram = data.split(";").getOrNull(3),
-        git = data.split(";").getOrNull(4),
-        mail = data.split(";").getOrNull(5)
-    )
-    override fun toString(): String {
-        return "ShortStudent($id; $firstName; $lastName; $git; $telephone; $telegram; $mail)"
+    override fun compareTo(other: ShortStudent): Int {
+        val nameComparison = this.nameAndInitials.compareTo(other.nameAndInitials)
+        return if (nameComparison != 0) {
+            nameComparison
+        } else {
+            this.id.compareTo(other.id)
+        }
     }
 
+    override fun toString(): String {
+        return "ShortStudent(id=$id, nameAndInitials='$nameAndInitials', git=$git, contacts=$contacts)"
+    }
 }

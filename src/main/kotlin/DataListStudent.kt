@@ -1,11 +1,10 @@
-class DataListStudent(students: List<Student>) : DataList<Student>(students) {
+class DataListStudent(students: List<ShortStudent>) : DataList<ShortStudent>(students) {
 
     override fun getNames(): List<String> {
-        return listOf("firstName","lastName","patronymic","phone", "telegram","git","mail")
+        return listOf("№","name","git","contacts")
     }
 
     fun printNames(list: List<String>){
-        print("№ ")
         println(list.joinToString(" "))
     }
 
@@ -14,13 +13,9 @@ class DataListStudent(students: List<Student>) : DataList<Student>(students) {
         for ((index, student) in (super.getSelected().map { it to elements[it] })){
             val row = arrayOf(
                 (index + 1).toString(),
-                student.firstName,
-                student.lastName,
-                student.patronymic,
-                student.telephone,
-                student.telegram,
+                student.nameAndInitials,
                 student.git,
-                student.mail,
+                student.contacts,
             )
             data.add(row)
         }
@@ -33,12 +28,8 @@ class DataListStudent(students: List<Student>) : DataList<Student>(students) {
             val newRow  = arrayOf(
                 row[0]!!,
                 row[1]!!,
-                row[2]!!,
+                row.getOrNull(2)?:"",
                 row.getOrNull(3)?:"",
-                row.getOrNull(4)?:"",
-                row.getOrNull(5)?:"",
-                row.getOrNull(6)?:"",
-                row.getOrNull(7)?:"",
                     )
 
             formatedData.add(newRow)
