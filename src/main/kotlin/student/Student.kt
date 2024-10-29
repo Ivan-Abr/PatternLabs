@@ -1,6 +1,4 @@
-import java.io.File
-import java.io.FileNotFoundException
-import java.io.IOException
+package student
 
 class Student(
     id: Int,
@@ -61,6 +59,6 @@ class Student(
     }
 
     override fun toString(): String {
-        return "Student(id=$id, firstName='$firstName', lastName='$lastName', patronymic='$patronymic', telephone=$telephone, telegram=$telegram, mail=$mail, git = $git)"
+        return "student.Student(id=$id, firstName='$firstName', lastName='$lastName', patronymic='$patronymic', telephone=$telephone, telegram=$telegram, mail=$mail, git = $git)"
     }
 }

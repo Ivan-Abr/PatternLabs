@@ -1,3 +1,7 @@
+package data
+
+import student.ShortStudent
+
 class DataListStudent(students: List<ShortStudent>) : DataList<ShortStudent>(students) {
 
     override fun getNames(): List<String> {

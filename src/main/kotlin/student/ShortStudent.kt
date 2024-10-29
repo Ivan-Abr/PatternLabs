@@ -1,5 +1,7 @@
+package student
+
 class ShortStudent(
-    private var id: Int,
+    var id: Int,
     var nameAndInitials: String,
     var git: String?,
     var contacts: String?,
@@ -21,6 +23,6 @@ class ShortStudent(
     }
 
     override fun toString(): String {
-        return "ShortStudent(id=$id, nameAndInitials='$nameAndInitials', git=$git, contacts=$contacts)"
+        return "student.ShortStudent(id=$id, nameAndInitials='$nameAndInitials', git=$git, contacts=$contacts)"
     }
 }

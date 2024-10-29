@@ -1,3 +1,5 @@
+package data
+
 abstract class DataList<T: Comparable<T>>(val elements: List<T>) {
     private val sortedElements: List<T> = elements.sorted()
     private val selectedElements = mutableSetOf<Int>()
@@ -17,7 +19,7 @@ abstract class DataList<T: Comparable<T>>(val elements: List<T>) {
         throw UnsupportedOperationException("should be realized in nested class")
     }
 
-    open fun getData(): DataTable<String>{
+    open fun getData(): DataTable<String> {
         val data = fetchData()
         val newData = formatData(data)
         return DataTable(newData)

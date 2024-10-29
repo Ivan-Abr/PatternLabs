@@ -1,3 +1,9 @@
+import data.DataListStudent
+import data.DataTable
+import student.BaseStudent
+import student.ShortStudent
+import student.Student
+
 fun main() {
     val path = "src/main/resources/input.txt"
     val st1 = Student(1,"Artur; Pirogov; Pylesosovich; 89604897189; @gelebe; test@mail.com; https://github.com/user/repo")
