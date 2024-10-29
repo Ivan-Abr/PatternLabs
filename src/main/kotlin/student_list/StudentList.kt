@@ -1,20 +1,42 @@
 package student_list
 
 import data.DataListStudent
-import student.Student
+import student.ShortStudent
 
-interface StudentList {
-    fun getStudentById(id: Int): Student?
+class StudentList(
+    private val strategy: IStudentListStrategy
+): IStudentList {
+    private val students = mutableListOf<ShortStudent>()
 
-    fun getStudentShortList(k: Int, n: Int): DataListStudent
+    fun write() = strategy.write(students)
+    fun read(): List<ShortStudent> = strategy.read()
 
-    fun addStudent(student: Student)
+    override fun getStudentById(id: Int): ShortStudent {
+        return students[id]
+    }
 
-    fun replaceById(id: Int, newStudent: Student)
+    override fun getStudentShortList(k: Int, n: Int): DataListStudent {
+        return DataListStudent(students.subList(k * n-1, n-k))
+    }
 
-    fun deleteById(id: Int)
+    override fun addStudent(student: ShortStudent) {
+        students.add(student)
+    }
 
-    fun getStudentShortCount(): Int
+    override fun replaceById(id: Int, newStudent: ShortStudent) {
+        if (id == -1) throw Exception("Incorrect id")
+        students[id] = newStudent
+    }
 
-    fun sortByInitials(): List<Student>
+    override fun deleteById(id: Int) {
+        students.removeAt(id)
+    }
+
+    override fun getStudentShortCount(): Int {
+        return students.size
+    }
+
+    override fun sortByInitials(): List<ShortStudent> {
+        return students.sortedBy { it.id }
+    }
 }
