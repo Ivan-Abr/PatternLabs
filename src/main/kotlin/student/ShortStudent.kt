@@ -13,6 +13,13 @@ class ShortStudent(
         student.getContacts()
     )
 
+    constructor(params: Map<String, Any?>): this(
+        params["id"] as Int,
+        params["nameAndInitials"] as String,
+        params["git"] as String?,
+        params["contacts"] as String?,
+    )
+
     constructor(data: String): this(
         id = data.split(";")[0].toInt(),
         nameAndInitials = data.split(";")[1],
