@@ -13,6 +13,13 @@ class ShortStudent(
         student.getContacts()
     )
 
+    constructor(data: String): this(
+        id = data.split(";")[0].toInt(),
+        nameAndInitials = data.split(";")[1],
+        git = data.split(";").getOrNull(2),
+        contacts = data.split(";").getOrNull(3),
+    )
+
     override fun compareTo(other: ShortStudent): Int {
         val nameComparison = this.nameAndInitials.compareTo(other.nameAndInitials)
         return if (nameComparison != 0) {

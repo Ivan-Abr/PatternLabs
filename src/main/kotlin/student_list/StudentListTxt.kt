@@ -1,6 +1,7 @@
 package student_list
 
 import data.DataListStudent
+import student.ShortStudent
 import student.Student
 import java.io.File
 import java.io.FileNotFoundException
@@ -9,71 +10,39 @@ import java.lang.Exception
 import javax.xml.crypto.Data
 import kotlin.math.roundToInt
 
-class StudentListTxt(private val filePath: String) {
-    private val studentList: MutableList<Student> = mutableListOf();
-
-    @Throws(IOException::class, IllegalArgumentException::class)
-    fun readFromTxt(): List<Student> {
+class StudentListTxt(
+    private val filePath: String
+): IStudentListStrategy {
+    override fun read(): List<ShortStudent> {
         val file = File(filePath)
-
-        if (!file.exists()) {
-            throw FileNotFoundException("Файл по адресу $filePath не найден.")
-        }
+        val students = mutableListOf<ShortStudent>()
+        if (!file.exists())
+            throw FileNotFoundException("no file: $filePath")
 
         file.forEachLine { line ->
             try {
-                val randInt = (Math.random()*10).roundToInt()
-                // Создаем студента из строки и добавляем в список
-                val student = Student(randInt,line)
-                studentList.add(student)
-            } catch (e: IllegalArgumentException) {
-                // Если строка некорректна, выбрасываем исключение
-                println("Ошибка в строке: \"$line\". Пропускаем её.")
+                val student = ShortStudent(line)
+                students.add(student)
+            }
+            catch (e: IllegalArgumentException){
+                println("Error in line: $line")
             }
         }
 
-        if (studentList.isEmpty()) {
-            throw IllegalArgumentException("В файле нет корректных данных для студентов.")
-        }
-
-        return studentList
+        if (students.isEmpty())
+            throw IllegalArgumentException("No data present")
+        return students
     }
 
-    @Throws(IOException::class)
-    fun writeToTxt() {
+    override fun write(students: List<ShortStudent>) {
         val file = File(filePath)
         file.bufferedWriter().use { writer ->
-            studentList.forEach { student ->
+            students.forEach {student ->
                 writer.write(
-                    "${student.id};${student.firstName};${student.lastName};${student.patronymic ?: ""};" + "${student.telephone ?: ""};${student.telegram ?: ""};${student.mail ?: ""};${student.git ?: ""}"
+                    "${student.id};${student.nameAndInitials};${student.git};${student.contacts}"
                 )
                 writer.newLine()
             }
         }
     }
-
-    fun getStudentById(id: Int) = studentList.find { it.id == id }
-
-    fun getKNStudentShortList(k: Int, n: Int): DataListStudent {
-        return DataListStudent(studentList.subList(k * n - 1, k * n))
-    }
-
-    fun addNewStudent(student: Student) {
-        this.studentList.add(student)
-    }
-
-    fun replaceById(id: Int, newStudent: Student) {
-        newStudent.id = id
-        val ind = this.studentList.indexOf(this.studentList.find { it.id == id })
-        if (ind != -1) this.studentList[ind] = newStudent
-        else throw Exception("Такого студента не существует")
-    }
-
-    fun deleteById(id: Int) {
-        this.studentList.removeAt(this.studentList.indexOf(this.studentList.find { it.id == id }))
-    }
-
-    fun getStudentShortCount() = this.studentList.size
-    fun sortByInitials() = this.studentList.sortedBy { it.getInitials() }
-
 }
