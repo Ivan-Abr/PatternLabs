@@ -1,23 +1,17 @@
 package student_list
 
-import data.DataListStudent
 import student.ShortStudent
-import student.Student
 import java.io.File
 import java.io.FileNotFoundException
-import java.io.IOException
-import java.lang.Exception
-import javax.xml.crypto.Data
-import kotlin.math.roundToInt
 
-class StudentListTxt(
-    private val filePath: String
-): IStudentListStrategy {
+class TxtStrategy(
+    private val path: String
+): StudentStrategy {
     override fun read(): List<ShortStudent> {
-        val file = File(filePath)
+        val file = File(path)
         val students = mutableListOf<ShortStudent>()
         if (!file.exists())
-            throw FileNotFoundException("no file: $filePath")
+            throw FileNotFoundException("no file: $path")
 
         file.forEachLine { line ->
             try {
@@ -35,7 +29,7 @@ class StudentListTxt(
     }
 
     override fun write(students: List<ShortStudent>) {
-        val file = File(filePath)
+        val file = File(path)
         file.bufferedWriter().use { writer ->
             students.forEach {student ->
                 writer.write(

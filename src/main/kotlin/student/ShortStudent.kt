@@ -1,5 +1,8 @@
 package student
 
+import kotlinx.serialization.Serializable
+
+@Serializable
 class ShortStudent(
     var id: Int,
     var nameAndInitials: String,
@@ -14,7 +17,7 @@ class ShortStudent(
     )
 
     constructor(params: Map<String, Any?>): this(
-        params["id"] as Int,
+        params["id"].toString().toInt(),
         params["nameAndInitials"] as String,
         params["git"] as String?,
         params["contacts"] as String?,
