@@ -1,5 +1,5 @@
 @startuml
-class Student {
+class student.Student {
         -id: Int,
         -firstName: String,
         -lastName: String,
@@ -24,6 +24,6 @@ class object{
     + isGitValid(git: String): Boolean
 }
 
-Student -down-> object : <<companion object>>
+student.Student -down-> object : <<companion object>>
 
 @enduml

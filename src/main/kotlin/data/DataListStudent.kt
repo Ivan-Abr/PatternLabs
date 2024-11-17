@@ -1,3 +1,7 @@
+package data
+
+import student.ShortStudent
+
 class DataListStudent(students: List<ShortStudent>) : DataList<ShortStudent>(students) {
 
     override fun getNames(): List<String> {
@@ -9,17 +13,14 @@ class DataListStudent(students: List<ShortStudent>) : DataList<ShortStudent>(stu
     }
 
     override fun fetchData(): Array<Array<String?>> {
-        val data = mutableListOf<Array<String?>>()
-        for ((index, student) in (super.getSelected().map { it to elements[it] })){
-            val row = arrayOf(
+        return super.elements.mapIndexed {index, student ->
+            arrayOf(
                 (index + 1).toString(),
                 student.nameAndInitials,
                 student.git,
                 student.contacts,
             )
-            data.add(row)
-        }
-        return data.toTypedArray()
+        }.toTypedArray()
     }
 
     override fun formatData(data: Array<Array<String?>>): Array<Array<String>>{
@@ -31,7 +32,6 @@ class DataListStudent(students: List<ShortStudent>) : DataList<ShortStudent>(stu
                 row.getOrNull(2)?:"",
                 row.getOrNull(3)?:"",
                     )
-
             formatedData.add(newRow)
         }
 

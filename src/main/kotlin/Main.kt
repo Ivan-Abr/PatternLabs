@@ -1,17 +1,22 @@
-fun main() {
-    val path = "src/main/resources/input.txt"
-    val st1 = Student(1,"Artur; Pirogov; Pylesosovich; 89604897189; @gelebe; test@mail.com; https://github.com/user/repo")
-    val st2 = Student(2, "Sanya", "Samyolov", "Dobytchikovich", "89013568790", "@arbuzz", "test@mail.com",null)
+import student.BaseStudent
+import student.ShortStudent
+import student_list.StudentListImpl
+import student_list.JsonStrategy
+import student_list.TxtStrategy
+import student_list.YamlStrategy
 
-    val studentList: List<BaseStudent> = listOf(st1, st2)
-    val shortStudentList = studentList.map { student -> ShortStudent(student) }
-    println(studentList)
-    val dataList = DataListStudent(shortStudentList)
-    println(dataList.toString())
-    dataList.select(0)
-    dataList.select(1)
-    val dataTable: DataTable<String> = dataList.getData()
-    val dataListNames = dataList.getNames()
-    dataList.printNames(dataListNames)
-    dataTable.displayTable()
+fun main() {
+    val student = BaseStudent(2, "Sanya", "Samyolov", "Dobytchikovich", "89013568790", "@arbuzz", "test@",null)
+    val shortStudent = ShortStudent(student)
+    val jsonStrategy = JsonStrategy("src/main/resources/input.json")
+    val yamlStrategy = YamlStrategy("src/main/resources/input.yaml")
+    var strategy = StudentListImpl(jsonStrategy)
+    println(strategy.getCount())
+    strategy.addStudent(shortStudent)
+    strategy.write()
+    println("Output: " + strategy.read())
+    strategy = StudentListImpl(yamlStrategy)
+    strategy.addStudent(shortStudent)
+    strategy.write()
+    println("Output: " + strategy.read())
 }
