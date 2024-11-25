@@ -149,4 +149,16 @@ class Student : BaseStudent, Comparable<Student>{
     override fun toString(): String {
         return "student.Student(id=$id, firstName='$firstName', lastName='$lastName', patronymic='$patronymic', telephone=$telephone, telegram=$telegram, mail=$mail, git = $git)"
     }
+
+    fun returnProperties(): Map<String, Any?> =
+        mapOf(
+            "id" to this.id,
+            "lastname" to this.lastName,
+            "firstname" to this.firstName,
+            "patronymic" to this.patronymic,
+            "telephone" to this.telephone,
+            "mail" to this.mail,
+            "telegram" to this.telegram,
+            "git" to this.git
+        )
 }

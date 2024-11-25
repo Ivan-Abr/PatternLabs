@@ -4,7 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a3390ad6-869a-488f-ad54-2d78680f38ed" name="Changes" comment="ЛР4 - Успешная попытка подключения к базе данных и вывода данных" />
+    <list default="true" id="a3390ad6-869a-488f-ad54-2d78680f38ed" name="Changes" comment="ЛР4 - Реализация подключения к бд и выполнения sql запросов через отдельный объект">
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/student_db/StudentListDB.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/student_db/StudentListDBImpl.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/student/Student.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/student/Student.kt" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -14,6 +19,14 @@
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
     </projectState>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Kotlin Object" />
+        <option value="Kotlin Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
@@ -91,7 +104,15 @@
       <option name="project" value="LOCAL" />
       <updated>1732555311645</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="ЛР4 - Реализация подключения к бд и выполнения sql запросов через отдельный объект">
+      <option name="closed" value="true" />
+      <created>1732560271782</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1732560271782</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -108,6 +129,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Я ненавижу программирование" />
     <MESSAGE value="ЛР4 - Успешная попытка подключения к базе данных и вывода данных" />
-    <option name="LAST_COMMIT_MESSAGE" value="ЛР4 - Успешная попытка подключения к базе данных и вывода данных" />
+    <MESSAGE value="ЛР4 - Реализация подключения к бд и выполнения sql запросов через отдельный объект" />
+    <option name="LAST_COMMIT_MESSAGE" value="ЛР4 - Реализация подключения к бд и выполнения sql запросов через отдельный объект" />
   </component>
 </project>
