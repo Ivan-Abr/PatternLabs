@@ -27,6 +27,13 @@ class ShortStudent : BaseStudent, Comparable<ShortStudent>{
 
     }
 
+    constructor(params: Map<String, Any?>){
+        this.id = params["id"] as Int
+        this.nameAndInitials = params["nameAndInitials"] as String
+        this.git = params["git"] as String?
+        this.contacts = params["contacts"] as String?
+    }
+
     override fun compareTo(other: ShortStudent): Int {
         val nameComparison = this.nameAndInitials.compareTo(other.nameAndInitials)
         return if (nameComparison != 0) {
