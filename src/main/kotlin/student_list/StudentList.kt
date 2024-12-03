@@ -1,7 +1,5 @@
 package student_list
 
-import data.DataListStudent
-import student.ShortStudent
 import student.Student
 
 class StudentList(

@@ -68,8 +68,8 @@ class Student : BaseStudent, Comparable<Student>{
 
     constructor(
         id: Int,
-        lastName: String,
         firstName: String,
+        lastName: String,
         patronymic: String? = null,
         telephone: String? = null,
         telegram: String? = null,

@@ -1,12 +1,11 @@
 package student_list
 
-import data.DataListStudent
 import student.ShortStudent
 import student.Student
 
 interface StudentStrategy {
     fun read(): List<Student>
-    fun write(): List<Student>
+    fun write()
 
     fun getStudentById(id: Int): Student?
 

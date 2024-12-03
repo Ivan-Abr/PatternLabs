@@ -9,7 +9,7 @@ class StudentListDBAdapter(private val studentListDB: StudentListDB) : StudentSt
 
     override fun read(): List<Student>  = studentListDB.read()
 
-    override fun write(students: List<ShortStudent>) = throw Exception("Nuh-uh")
+    override fun write() = throw Exception("Nuh-uh")
 
     override fun getStudentById(id: Int): Student? = studentListDB.getStudentById(id)
 
