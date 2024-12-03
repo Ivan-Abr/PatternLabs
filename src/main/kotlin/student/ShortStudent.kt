@@ -1,8 +1,5 @@
 package student
 
-//import kotlinx.serialization.Serializable
-
-//@Serializable
 class ShortStudent : BaseStudent, Comparable<ShortStudent>{
 
     val nameAndInitials: String
