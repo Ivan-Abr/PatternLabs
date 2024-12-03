@@ -7,7 +7,7 @@ import student.Student
 
 interface StudentListDB {
     fun read(): List<Student>
-    fun getStudentList(k: Int, n: Int): DataListStudent
+    fun getStudentList(k: Int, n: Int): List<ShortStudent>
     fun getStudentById(id: Int): Student?
     fun addNewStudent(student: Student)
     fun updateStudent(id: Int, newStudent: Student)

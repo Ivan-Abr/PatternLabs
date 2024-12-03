@@ -2,20 +2,29 @@ package student_list
 
 import data.DataListStudent
 import student.ShortStudent
+import student.Student
 
+class StudentList(
+    private val strategy: StudentStrategy
+) {
 
-interface StudentList {
-    fun getStudentById(id: Int): ShortStudent?
+    fun write() = strategy.write()
 
-    fun getStudentList(k: Int, n: Int): DataListStudent
+    fun read(): List<Student> = strategy.read()
 
-    fun addStudent(student: ShortStudent)
+    fun getStudentById(id: Int) = strategy.getStudentById(id)
 
-    fun updateStudent(id: Int, newStudent: ShortStudent)
+    fun getStudentList(k: Int, n: Int) = strategy.getStudentList(k, n)
 
-    fun deleteStudent(id: Int)
+    fun addStudent(student: Student) = strategy.addStudent(student)
 
-    fun getCount(): Int
+    fun updateStudent(id: Int, newStudent: Student) = strategy.updateStudent(id, newStudent)
 
-    fun sortByInitials(): List<ShortStudent>
+    fun deleteStudent(id: Int) = strategy.deleteStudent(id)
+
+    fun getCount(): Int = strategy.getCount()
+
+    fun sortByInitials(): List<Student> = strategy.sortByInitials()
+
+    fun checkConnection(): Boolean = strategy.checkConnection()
 }

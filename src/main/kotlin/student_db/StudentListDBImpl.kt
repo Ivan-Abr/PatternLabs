@@ -39,8 +39,8 @@ class StudentListDBImpl : StudentListDB {
         return studentList
     }
 
-    override fun getStudentList(k: Int, n: Int): DataListStudent {
-        return DataListStudent(studentList.slice((k-1) * n until min((k-1) * n + n, studentList.size)).map { ShortStudent(it) })
+    override fun getStudentList(k: Int, n: Int): List<ShortStudent> {
+        return (studentList.slice((k-1) * n until min((k-1) * n + n, studentList.size)).map { ShortStudent(it) })
     }
 
     override fun getStudentById(id: Int): Student? {
