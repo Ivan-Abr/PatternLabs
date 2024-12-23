@@ -1,7 +1,9 @@
 package student_list
 
+import data.DataList
 import student.ShortStudent
 import student.Student
+import java.util.function.Function
 
 interface StudentStrategy {
     fun read(): List<Student>
@@ -9,7 +11,7 @@ interface StudentStrategy {
 
     fun getStudentById(id: Int): Student?
 
-    fun getStudentList(k: Int, n: Int): List<ShortStudent>
+    fun getStudentList(k: Int, n: Int): DataList<ShortStudent>
 
     fun addStudent(student: Student)
 
@@ -19,7 +21,9 @@ interface StudentStrategy {
 
     fun getCount(): Int
 
-    fun sortByInitials(): List<Student>
+    fun filterList(function: Function<MutableList<Student>, MutableList<Student>>)
+    fun restoreOrderList()
+    fun sortBy(order:Int,columnName:String)
 
     fun checkConnection(): Boolean
 }

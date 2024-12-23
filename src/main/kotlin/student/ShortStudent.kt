@@ -16,6 +16,7 @@ class ShortStudent : BaseStudent, Comparable<ShortStudent>{
         this.git = data.split(";").getOrNull(2)
         this.contacts = data.split(";").getOrNull(3)
     }
+
     constructor(params: HashMap<String, Any?>){
         this.id = params["id"] as Int
         this.nameAndInitials = params["nameAndInitials"] as String
@@ -39,6 +40,14 @@ class ShortStudent : BaseStudent, Comparable<ShortStudent>{
             this.id.compareTo(other.id)
         }
     }
+
+    override fun propertiesReturn(): Map<String, Any?> =
+        mapOf(
+            "id" to this.id,
+            "initials" to this.nameAndInitials,
+            "git" to this.git,
+            "contact" to this.contacts
+        )
 
     override fun toString(): String {
         return "student.ShortStudent(id=$id, nameAndInitials='$nameAndInitials', git=$git, contacts=$contacts)"

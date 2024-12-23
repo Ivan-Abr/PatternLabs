@@ -1,4 +1,8 @@
 - id: 2
-  nameAndInitials: "Samyolov S. D. "
+  firstName: "Samyolov"
+  lastName: "UPPUO"
+  patronymic: "po[wie[fp"
+  telephone: "89013568790"
+  telegram: "@eboba"
+  mail: " example123@domain.net"
   git: "test@"
-  contacts: "Телефон: 89013568790"

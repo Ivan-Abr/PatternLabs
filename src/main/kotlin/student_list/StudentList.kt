@@ -1,28 +1,50 @@
 package student_list
 
+import Main.UpdateDataInterface
+import data.DataList
+import org.example.student_list.StudentListComponent
+import student.ShortStudent
 import student.Student
+import java.util.function.Function
 
 class StudentList(
     private val strategy: StudentStrategy
-) {
+): StudentListComponent {
+
+    private var subscribers: MutableList<UpdateDataInterface> = mutableListOf();
+    override fun subscribe(sub: UpdateDataInterface) {
+        this.subscribers.add(sub);
+    }
+
+    override fun notifySubs() {
+        for (sub in this.subscribers) {
+            sub.updatePage()
+        }
+    }
+
+    fun read() = strategy.read()
 
     fun write() = strategy.write()
 
-    fun read(): List<Student> = strategy.read()
+    override fun getStudentById(id: Int) = strategy.getStudentById(id)
 
-    fun getStudentById(id: Int) = strategy.getStudentById(id)
+    override fun getStudentList(k: Int, n: Int): DataList<ShortStudent> = strategy.getStudentList(k, n)
 
-    fun getStudentList(k: Int, n: Int) = strategy.getStudentList(k, n)
+    override fun addStudent(student: Student) = strategy.addStudent(student)
 
-    fun addStudent(student: Student) = strategy.addStudent(student)
+    override fun updateStudent(id: Int, newStudent: Student) = strategy.updateStudent(id, newStudent)
 
-    fun updateStudent(id: Int, newStudent: Student) = strategy.updateStudent(id, newStudent)
+    override fun deleteStudent(id: Int) = strategy.deleteStudent(id)
 
-    fun deleteStudent(id: Int) = strategy.deleteStudent(id)
+    override fun getCount(): Int = strategy.getCount()
 
-    fun getCount(): Int = strategy.getCount()
+    override fun sortBy(order: Int, columnName: String) = strategy.sortBy(order, columnName)
 
-    fun sortByInitials(): List<Student> = strategy.sortByInitials()
+    override fun filterList(function: Function<MutableList<Student>, MutableList<Student>>) =
+        strategy.filterList(function);
 
-    fun checkConnection(): Boolean = strategy.checkConnection()
+    override fun restoreOrderList() {
+        strategy.restoreOrderList()
+    }
+    override fun checkConnection(): Boolean = strategy.checkConnection()
 }

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/src/main/java/ButtonCRUDPanel/ButtonPanel.java" charset="windows-1251" />
+    <file url="file://$PROJECT_DIR$/src/main/java/ButtonCRUDPanel/Controllers/ButtonPanelController.java" charset="windows-1251" />
+    <file url="file://$PROJECT_DIR$/src/main/java/ButtonCRUDPanel/CrudButton.java" charset="windows-1251" />
+    <file url="file://$PROJECT_DIR$/src/main/java/EditCreateForm/Controllers/EditCreateWindowController.java" charset="windows-1251" />
+    <file url="file://$PROJECT_DIR$/src/main/java/EditCreateForm/Controllers/InputFieldController.java" charset="windows-1251" />
+    <file url="file://$PROJECT_DIR$/src/main/java/EditCreateForm/Controllers/UpdateController.java" charset="windows-1251" />
+    <file url="file://$PROJECT_DIR$/src/main/java/EditCreateForm/Controllers/UpdateEmailController.java" charset="windows-1251" />
+    <file url="file://$PROJECT_DIR$/src/main/java/EditCreateForm/Controllers/UpdateFIOController.java" charset="windows-1251" />
+    <file url="file://$PROJECT_DIR$/src/main/java/EditCreateForm/Controllers/UpdateGitController.java" charset="windows-1251" />
+    <file url="file://$PROJECT_DIR$/src/main/java/EditCreateForm/Controllers/UpdatePhoneController.java" charset="windows-1251" />
+    <file url="file://$PROJECT_DIR$/src/main/java/EditCreateForm/Controllers/UpdateTelegramController.java" charset="windows-1251" />
+    <file url="file://$PROJECT_DIR$/src/main/java/EditCreateForm/EditCreateWindow.java" charset="windows-1251" />
+    <file url="file://$PROJECT_DIR$/src/main/java/EditCreateForm/InputField.java" charset="windows-1251" />
+    <file url="file://$PROJECT_DIR$/src/main/java/EditCreateForm/Models/InputFieldModel.java" charset="windows-1251" />
+    <file url="file://$PROJECT_DIR$/src/main/java/InputFilterPack/ContactField.java" charset="windows-1251" />
+    <file url="file://$PROJECT_DIR$/src/main/java/InputFilterPack/ContactFilterComboBox.java" charset="windows-1251" />
+    <file url="file://$PROJECT_DIR$/src/main/java/InputFilterPack/Controllers/ContactFieldController.java" charset="windows-1251" />
+    <file url="file://$PROJECT_DIR$/src/main/java/InputFilterPack/Controllers/FilterPanelController.java" charset="windows-1251" />
+    <file url="file://$PROJECT_DIR$/src/main/java/InputFilterPack/Controllers/InputControllerInterface.java" charset="windows-1251" />
+    <file url="file://$PROJECT_DIR$/src/main/java/InputFilterPack/Controllers/SurnameInitialsFieldController.java" charset="windows-1251" />
+    <file url="file://$PROJECT_DIR$/src/main/java/InputFilterPack/FilterPanel.java" charset="windows-1251" />
+    <file url="file://$PROJECT_DIR$/src/main/java/InputFilterPack/InputField.java" charset="windows-1251" />
+    <file url="file://$PROJECT_DIR$/src/main/java/InputFilterPack/Models/ContactFilterModel.java" charset="windows-1251" />
+    <file url="file://$PROJECT_DIR$/src/main/java/InputFilterPack/Models/SurnameInitialsModel.java" charset="windows-1251" />
+    <file url="file://$PROJECT_DIR$/src/main/java/InputFilterPack/States/FilterState.java" charset="windows-1251" />
+    <file url="file://$PROJECT_DIR$/src/main/java/InputFilterPack/States/FilterStateNo.java" charset="windows-1251" />
+    <file url="file://$PROJECT_DIR$/src/main/java/InputFilterPack/States/FilterStateNoMatter.java" charset="windows-1251" />
+    <file url="file://$PROJECT_DIR$/src/main/java/InputFilterPack/States/FilterStateSurname.java" charset="windows-1251" />
+    <file url="file://$PROJECT_DIR$/src/main/java/InputFilterPack/States/FilterStateYes.java" charset="windows-1251" />
+    <file url="file://$PROJECT_DIR$/src/main/java/InputFilterPack/SurnameInitialsField.java" charset="windows-1251" />
+    <file url="file://$PROJECT_DIR$/src/main/java/Main/Controllers/TabbedPanelController.java" charset="windows-1251" />
+    <file url="file://$PROJECT_DIR$/src/main/java/Main/CustomTabComponent.java" charset="windows-1251" />
+    <file url="file://$PROJECT_DIR$/src/main/java/Main/Factory/MainViewsFactory.java" charset="windows-1251" />
+    <file url="file://$PROJECT_DIR$/src/main/java/Main/MainViews.java" charset="windows-1251" />
+    <file url="file://$PROJECT_DIR$/src/main/java/Main/StudentManagementApp.java" charset="windows-1251" />
+    <file url="file://$PROJECT_DIR$/src/main/java/Main/UpdateDataInterface.java" charset="windows-1251" />
+    <file url="file://$PROJECT_DIR$/src/main/java/MainPack/Controllers/TabbedPanelController.java" charset="windows-1251" />
+    <file url="file://$PROJECT_DIR$/src/main/java/MainPack/CustomTabComponent.java" charset="windows-1251" />
+    <file url="file://$PROJECT_DIR$/src/main/java/MainPack/Factory/MainViewsFactory.java" charset="windows-1251" />
+    <file url="file://$PROJECT_DIR$/src/main/java/MainPack/MainViews.java" charset="windows-1251" />
+    <file url="file://$PROJECT_DIR$/src/main/java/MainPack/StudentManagementApp.java" charset="windows-1251" />
+    <file url="file://$PROJECT_DIR$/src/main/java/MainPack/UpdateDataInterface.java" charset="windows-1251" />
+    <file url="file://$PROJECT_DIR$/src/main/java/TableGridPack/Controllers/MainTableController.java" charset="windows-1251" />
+    <file url="file://$PROJECT_DIR$/src/main/java/TableGridPack/Controllers/TableViewController.java" charset="windows-1251" />
+    <file url="file://$PROJECT_DIR$/src/main/java/TableGridPack/MainTable.java" charset="windows-1251" />
+    <file url="file://$PROJECT_DIR$/src/main/java/TableGridPack/Models/MainTableModel.java" charset="windows-1251" />
+    <file url="file://$PROJECT_DIR$/src/main/java/TableGridPack/Navigator/Controllers/NavigatorController.java" charset="windows-1251" />
+    <file url="file://$PROJECT_DIR$/src/main/java/TableGridPack/Navigator/ElemsForPageSelector.java" charset="windows-1251" />
+    <file url="file://$PROJECT_DIR$/src/main/java/TableGridPack/Navigator/Models/NavigationPageModel.java" charset="windows-1251" />
+    <file url="file://$PROJECT_DIR$/src/main/java/TableGridPack/Navigator/NavigatorPanel.java" charset="windows-1251" />
+    <file url="file://$PROJECT_DIR$/src/main/java/TableGridPack/TableParamsInterfaceSetter.java" charset="windows-1251" />
+    <file url="file://$PROJECT_DIR$/src/main/java/TableGridPack/TableView.java" charset="windows-1251" />
+    <file url="file://$PROJECT_DIR$/src/main/kotlin/student_list/NumberOrStringSerializer.kt" charset="windows-1251" />
+    <file url="file://$PROJECT_DIR$/src/main/kotlin/student_list/StudentListBaseExtend.kt" charset="windows-1251" />
+    <file url="file://$PROJECT_DIR$/src/main/kotlin/student_list/StudentListComponent.kt" charset="windows-1251" />
+    <file url="file://$PROJECT_DIR$/src/main/kotlin/student_list/StudentListDecorator.kt" charset="windows-1251" />
+    <file url="file://$PROJECT_DIR$/src/main/kotlin/student_list/StudentListJson.kt" charset="windows-1251" />
+    <file url="file://$PROJECT_DIR$/src/main/kotlin/student_list/StudentListTxt.kt" charset="windows-1251" />
+    <file url="file://$PROJECT_DIR$/src/main/kotlin/student_list/StudentListYaml.kt" charset="windows-1251" />
+  </component>
+</project>

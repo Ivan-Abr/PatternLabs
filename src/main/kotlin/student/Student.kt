@@ -52,7 +52,7 @@ class Student : BaseStudent, Comparable<Student>{
     var mail: String?
         get() = _mail
         set(value) {
-            if (!Validator.isEmailValid(value)) throw Exception("Неверный email")
+            //if (!Validator.isEmailValid(value)) throw Exception("Неверный email")
             _mail = value
         }
 
@@ -99,19 +99,38 @@ class Student : BaseStudent, Comparable<Student>{
         params["mail"] as String?
     )
 
-    constructor(id: Int, data: String): this(
-        id = id,
-        firstName = data.split(";")[0],
-        lastName = data.split(";")[1],
-        patronymic = data.split("2").getOrNull(2),
-        telephone = data.split(";").getOrNull(3),
-        telegram = data.split(";").getOrNull(4),
-        git = data.split(";").getOrNull(5),
-        mail = data.split(";").getOrNull(6),
-    )
+//    constructor(data: String): this(
+//        id = data.split(";")[0].toIntOrNull()?:throw NumberFormatException("Incorrect ID!: ${data.split(";")[0]}"),
+//        firstName = data.split(";")[1],
+//        lastName = data.split(";")[2],
+//        patronymic = data.split("2").getOrNull(3),
+//        telephone = data.split(";").getOrNull(4),
+//        telegram = data.split(";").getOrNull(5),
+//        git = data.split(";").getOrNull(6),
+//        mail = data.split(";").getOrNull(7),
+//    )
 
     private fun hasGit(): Boolean {
         return git != null && git!!.isNotBlank()
+    }
+
+    companion object {
+        fun fromString(data: String): Student{
+            println(data)
+            val params = data.split(";")
+            println(params)
+            val id = params[0].toIntOrNull() ?: throw NumberFormatException("Неверный формат ID: ${params[0]}")
+            // Получаем остальные параметры
+            val firstName = params[1]
+            val lastName = params[2]
+            val patronymic = params[3].takeIf { it != "null" }
+            val telephone = params[4].takeIf { it != "null" }
+            val telegram = params[5].takeIf { it != "null" }
+            val mail = params[6].takeIf { it != "null" }
+            val git = params[7].takeIf { it != "null" }
+
+            return Student(id, firstName, lastName, patronymic, telephone, telegram, mail, git)
+        }
     }
 
 
@@ -150,7 +169,7 @@ class Student : BaseStudent, Comparable<Student>{
         return "student.Student(id=$id, firstName='$firstName', lastName='$lastName', patronymic='$patronymic', telephone=$telephone, telegram=$telegram, mail=$mail, git = $git)"
     }
 
-    fun returnProperties(): Map<String, Any?> =
+    override fun propertiesReturn(): Map<String, Any?> =
         mapOf(
             "id" to this.id,
             "lastname" to this.lastName,

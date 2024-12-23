@@ -36,6 +36,8 @@ abstract class BaseStudent(
         }
     }
 
+    abstract fun propertiesReturn(): Map<String, Any?>
+
     override fun toString(): String {
         return "BaseStudent(id=$id, git=$git)"
     }

@@ -1,15 +1,18 @@
 package org.example.student_db
 
+
 import data.DataList
-import data.DataListStudent
 import student.ShortStudent
 import student.Student
-import java.util.HashMap
+import java.util.*
+import java.util.function.Function
 import kotlin.math.min
 
 class StudentListDBImpl : StudentListDB {
     private var connection: DatabaseConnection? = DatabaseConnection
     private var studentList: MutableList<Student> = mutableListOf()
+    private var orderedStudentList: MutableList<Student> = mutableListOf();
+    private var indexOrder:MutableList<Int> = mutableListOf()
 
     init {
         connection?.getConnection()
@@ -39,8 +42,8 @@ class StudentListDBImpl : StudentListDB {
         return studentList
     }
 
-    override fun getStudentList(k: Int, n: Int): List<ShortStudent> {
-        return (studentList.slice((k-1) * n until min((k-1) * n + n, studentList.size)).map { ShortStudent(it) })
+    override fun getStudentList(k: Int, n: Int): DataList<ShortStudent> {
+        return DataList(studentList.slice((k-1) * n until min((k-1) * n + n, studentList.size)).map { ShortStudent(it) }.toTypedArray())
     }
 
     override fun getStudentById(id: Int): Student? {
@@ -49,7 +52,7 @@ class StudentListDBImpl : StudentListDB {
     }
 
     override fun addNewStudent(student: Student) {
-        val studentData = student.returnProperties()
+        val studentData = student.propertiesReturn()
         var columns = ""
         var values = ""
         for (key in studentData.keys) {
@@ -66,7 +69,7 @@ class StudentListDBImpl : StudentListDB {
     }
 
     override fun updateStudent(id: Int, newStudent: Student) {
-        val studentData = newStudent.returnProperties()
+        val studentData = newStudent.propertiesReturn()
         var values = ""
         for (key in studentData.keys) {
             if (studentData[key] != null && key != "id") {
@@ -96,7 +99,34 @@ class StudentListDBImpl : StudentListDB {
         return this.studentList
     }
 
+    override fun sortBy(order:Int,columnName:String) {
+        println(this.orderedStudentList)
+        if(order==-1){
+            this.orderedStudentList.sortByDescending{ Objects.toString(ShortStudent(it).propertiesReturn()[columnName],"")}
+        }
+        else if (order==1){
+            this.orderedStudentList.sortBy { Objects.toString(ShortStudent(it).propertiesReturn()[columnName],"") }
+        }
+        else{
+            val oldList = this.orderedStudentList;
+            this.orderedStudentList = mutableListOf<Student>();
+            for (i in indexOrder) {
+                this.orderedStudentList.add(oldList.first { it.id == i });
+            }
+
+        }
+    }
+
     override fun checkConnection(): Boolean {
         return this.connection?.getConnection() != null
+    }
+
+    override fun filterList(function: Function<MutableList<Student>, MutableList<Student>>) {
+        this.orderedStudentList = function.apply(this.orderedStudentList).toMutableList()
+        this.indexOrder = this.indexOrder.filter { i->this.orderedStudentList.map { it.id }.toList().contains(i) }.toMutableList()
+    }
+
+    override fun restoreOrderList() {
+        this.read()
     }
 }
