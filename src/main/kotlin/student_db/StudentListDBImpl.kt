@@ -13,6 +13,7 @@ class StudentListDBImpl : StudentListDB {
     private var studentList: MutableList<Student> = mutableListOf()
     private var orderedStudentList: MutableList<Student> = mutableListOf();
     private var indexOrder:MutableList<Int> = mutableListOf()
+    var tableName = "student"
 
     init {
         connection?.getConnection()

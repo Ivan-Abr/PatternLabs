@@ -8,8 +8,10 @@ import student_list.StudentList
 
 
 fun main() {
-    val studentDb = StudentListDBImpl()
-    val adapter = StudentListDBAdapter(studentDb)
-    val students = StudentList(adapter)
+//    val studentDb = StudentListDBImpl()
+//    val adapter = StudentListDBAdapter(studentDb)
+//    val students = StudentList(adapter)
+    val stuListDb = StudentList(StudentListDBAdapter(StudentListDBImpl()))
+    println(stuListDb.getStudentById(1))
     StudentManagementApp.start()
 }

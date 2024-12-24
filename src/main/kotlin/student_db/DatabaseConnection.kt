@@ -10,7 +10,7 @@ object DatabaseConnection {
     private var connection: Connection? = null
 
     fun createConnection() {
-        val url = "jdbc:postgresql://localhost:5432/pattern_labs"
+        val url = "jdbc:postgresql://localhost:5433/patterndb"
         val user = "postgres"
         val password = "3002"
         this.connection = null

@@ -40,7 +40,7 @@ abstract class StudentListBaseExtend(var readFilePath: String?, var writeFilePat
             val mainString = File(this.readFilePath).readText()
             this.readFromFile(mainString, this.studentList)
             this.indexOrder = this.studentList.map { it.id }.toMutableList();
-            this.orderedStudentList = this.studentList.map { Student.fromString(it.toString()) }.toMutableList()
+            this.orderedStudentList = this.studentList.map { Student(it.toString()) }.toMutableList()
         }
         return this.studentList
     }
@@ -94,7 +94,7 @@ abstract class StudentListBaseExtend(var readFilePath: String?, var writeFilePat
     }
 
     override fun addStudent(student: Student) {
-        val stud = Student.fromString(student.toString())
+        val stud = Student(student.toString())
         stud.id = studentList.maxOf { it.id } + 1
         this.studentList.add(stud)
 

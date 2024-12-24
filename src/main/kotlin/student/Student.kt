@@ -99,38 +99,21 @@ class Student : BaseStudent, Comparable<Student>{
         params["mail"] as String?
     )
 
-//    constructor(data: String): this(
-//        id = data.split(";")[0].toIntOrNull()?:throw NumberFormatException("Incorrect ID!: ${data.split(";")[0]}"),
-//        firstName = data.split(";")[1],
-//        lastName = data.split(";")[2],
-//        patronymic = data.split("2").getOrNull(3),
-//        telephone = data.split(";").getOrNull(4),
-//        telegram = data.split(";").getOrNull(5),
-//        git = data.split(";").getOrNull(6),
-//        mail = data.split(";").getOrNull(7),
-//    )
-
     private fun hasGit(): Boolean {
         return git != null && git!!.isNotBlank()
     }
 
-    companion object {
-        fun fromString(data: String): Student{
-            println(data)
-            val params = data.split(";")
-            println(params)
-            val id = params[0].toIntOrNull() ?: throw NumberFormatException("Неверный формат ID: ${params[0]}")
-            // Получаем остальные параметры
-            val firstName = params[1]
-            val lastName = params[2]
-            val patronymic = params[3].takeIf { it != "null" }
-            val telephone = params[4].takeIf { it != "null" }
-            val telegram = params[5].takeIf { it != "null" }
-            val mail = params[6].takeIf { it != "null" }
-            val git = params[7].takeIf { it != "null" }
+    constructor(data:String): this(parseString(data))
 
-            return Student(id, firstName, lastName, patronymic, telephone, telegram, mail, git)
+    companion object{
+        //Парсер строки
+        private fun cutStudent(data:String) = data.split("^Student\\(".toRegex())[1].split("\\)$".toRegex())[0]
+        fun parseString(data:String):HashMap<String,Any?> {
+            val dataWithoutPrefix = cutStudent(data)
+            return BaseStudent.parseString(dataWithoutPrefix)
         }
+
+        fun returnPropertyNames() = Student("Student(id:1,surname:Aabbb-Abbb,name:Bbbbbb,patronymic:Cccccc,phoneNumber:,email:,telegram:@elelelelele,gitHub:)").propertiesReturn().keys
     }
 
 

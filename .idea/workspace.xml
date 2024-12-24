@@ -4,85 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a3390ad6-869a-488f-ad54-2d78680f38ed" name="Changes" comment="ЛР5 - Реализация адаптера для БД">
-      <change afterPath="$PROJECT_DIR$/.idea/.name" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ButtonCRUDPanel/ButtonPanel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ButtonCRUDPanel/Controllers/ButtonPanelController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ButtonCRUDPanel/CrudButton.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/EditCreateForm/Controllers/EditCreateWindowController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/EditCreateForm/Controllers/InputFieldController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/EditCreateForm/Controllers/UpdateController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/EditCreateForm/Controllers/UpdateEmailController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/EditCreateForm/Controllers/UpdateFIOController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/EditCreateForm/Controllers/UpdateGitController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/EditCreateForm/Controllers/UpdatePhoneController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/EditCreateForm/Controllers/UpdateTelegramController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/EditCreateForm/EditCreateWindow.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/EditCreateForm/InputField.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/EditCreateForm/Models/InputFieldModel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/InputFilterPack/ContactField.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/InputFilterPack/ContactFilterComboBox.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/InputFilterPack/Controllers/ContactFieldController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/InputFilterPack/Controllers/FilterPanelController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/InputFilterPack/Controllers/InputControllerInterface.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/InputFilterPack/Controllers/SurnameInitialsFieldController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/InputFilterPack/FilterPanel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/InputFilterPack/InputField.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/InputFilterPack/Models/ContactFilterModel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/InputFilterPack/Models/SurnameInitialsModel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/InputFilterPack/States/FilterState.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/InputFilterPack/States/FilterStateNo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/InputFilterPack/States/FilterStateNoMatter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/InputFilterPack/States/FilterStateSurname.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/InputFilterPack/States/FilterStateYes.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/InputFilterPack/SurnameInitialsField.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Main/Controllers/TabbedPanelController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Main/CustomTabComponent.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Main/Factory/MainViewsFactory.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Main/MainViews.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Main/StudentManagementApp.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Main/UpdateDataInterface.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/MainPack/Controllers/TabbedPanelController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/MainPack/CustomTabComponent.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/MainPack/Factory/MainViewsFactory.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/MainPack/MainViews.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/MainPack/StudentManagementApp.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/MainPack/UpdateDataInterface.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/TableGridPack/Controllers/MainTableController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/TableGridPack/Controllers/TableViewController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/TableGridPack/MainTable.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/TableGridPack/Models/MainTableModel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/TableGridPack/Navigator/Controllers/NavigatorController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/TableGridPack/Navigator/ElemsForPageSelector.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/TableGridPack/Navigator/Models/NavigationPageModel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/TableGridPack/Navigator/NavigatorPanel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/TableGridPack/TableParamsInterfaceSetter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/TableGridPack/TableView.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/student_list/NumberOrStringSerializer.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/student_list/StudentListBaseExtend.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/student_list/StudentListComponent.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/student_list/StudentListDecorator.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/student_list/StudentListJson.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/student_list/StudentListTxt.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/student_list/StudentListYaml.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="a3390ad6-869a-488f-ad54-2d78680f38ed" name="Changes" comment="ЛР6-9 - Победа?">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/Main.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Main.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/data/DataList.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/data/DataList.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/data/DataListStudent.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/data/DataTable.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/data/DataTable.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/student/BaseStudent.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/student/BaseStudent.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/student/ShortStudent.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/student/ShortStudent.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/TableGridPack/Controllers/TableViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/TableGridPack/Controllers/TableViewController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/student/Student.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/student/Student.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/student_db/StudentListDB.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/student_db/StudentListDB.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/student_db/StudentListDBImpl.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/student_db/StudentListDBImpl.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/student_list/StudentList.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/student_list/StudentList.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/student_list/StudentListDBAdapter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/student_list/StudentListDBAdapter.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/student_list/StudentStrategy.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/student_list/StudentStrategy.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/input.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/input.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/student_list/StudentListBaseExtend.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/student_list/StudentListBaseExtend.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/student_list/StudentListTxt.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/student_list/StudentListTxt.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/input.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/input.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/input.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/input.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -213,7 +141,15 @@
       <option name="project" value="LOCAL" />
       <updated>1733218229464</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="ЛР6-9 - Победа?">
+      <option name="closed" value="true" />
+      <created>1734996013512</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1734996013512</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -245,6 +181,7 @@
     <MESSAGE value="ЛР4 - Реализация подключения к бд и выполнения sql запросов через отдельный объект" />
     <MESSAGE value="ЛР4 - Реализация StudentListDB" />
     <MESSAGE value="ЛР5 - Реализация адаптера для БД" />
-    <option name="LAST_COMMIT_MESSAGE" value="ЛР5 - Реализация адаптера для БД" />
+    <MESSAGE value="ЛР6-9 - Победа?" />
+    <option name="LAST_COMMIT_MESSAGE" value="ЛР6-9 - Победа?" />
   </component>
 </project>

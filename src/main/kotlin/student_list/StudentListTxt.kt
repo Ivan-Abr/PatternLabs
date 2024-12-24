@@ -11,7 +11,7 @@ open class StudentListTxt(readFilePath:String?,writeFilePath:String?): StudentLi
         students.clear()
         mainString.split('\n').dropLast(1).forEach {
             students.add(
-                Student.fromString(it)
+                Student(it)
             )
         }
     }

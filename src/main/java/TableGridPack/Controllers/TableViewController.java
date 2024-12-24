@@ -89,7 +89,7 @@ public class TableViewController implements UpdateDataInterface, TableParamsInte
         this.studentList.subscribe(this);
         if(!studentList.checkConnection()){
             SwingUtilities.invokeLater(()->{
-                JOptionPane.showMessageDialog(this.tableView, "Не удалось подключиться к базе данных", "Info", JOptionPane.INFORMATION_MESSAGE);
+                JOptionPane.showMessageDialog(this.tableView, "Cannot connect to database", "Info", JOptionPane.INFORMATION_MESSAGE);
             });
         }
     }
@@ -104,7 +104,7 @@ public class TableViewController implements UpdateDataInterface, TableParamsInte
         //Проверка для других списков
         LinkedList<StudentStrategy> list = new LinkedList<>();
         list.add(new StudentListTxt("src/main/resources/input.txt", "src/main/resources/input.txt") {});
-        //list.add(new StudentListYaml("src/main/resources/input.yaml","src/main/resources/input.yaml"));
+        list.add(new StudentListYaml("src/main/resources/input.yaml","src/main/resources/input.yaml"));
         list.add(new StudentListJson("src/main/resources/input.json","src/main/resources/input.json"));
 
         StudentStrategy resultList = null;
